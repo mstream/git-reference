@@ -8,5 +8,6 @@
   - [Tags](internal_data_structure/references/tags.md)
   - [Remotes](internal_data_structure/references/remotes.md)
   - [HEAD](internal_data_structure/head.md)
+  - [Client Configuration](client_configuration.md)
   - [Conventional Commits](conventional_commits.md)
   - [Learning Resources](learning_resources.md)
