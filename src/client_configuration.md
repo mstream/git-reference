@@ -1,0 +1,16 @@
+# Client Configuration
+
+## Format
+
+```handlebars
+[core]
+  editor = {{editor_executable_path}}
+[user]
+  name = {{user_name}}
+  email = {{user_email}}
+```
+
+## Full Reference
+
+All possible configuration options can be fount at
+[this](https://git-scm.com/docs/git-config) website.
