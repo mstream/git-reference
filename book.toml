@@ -5,5 +5,12 @@ multilingual = false
 src = "src"
 title = "Git Reference"
 
+[build]
+create-missing = true
+
+[output.html]
+[output.linkcheck]
+[output.markdown]
+
 [preprocessor.graphviz]
 command = "mdbook-graphviz"
