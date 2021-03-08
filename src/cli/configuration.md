@@ -1,4 +1,4 @@
-# Client Configuration
+# Configuration
 
 ## Format
 

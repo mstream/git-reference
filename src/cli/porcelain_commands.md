@@ -1,0 +1,41 @@
+# Porcelain Commands
+
+## add
+
+Updates the index based on the current state of the working tree.
+
+### Examples
+
+```bash
+git add some_file
+```
+
+## fetch
+
+Fetches refs from remote repositories together with objects associated
+with them.
+
+### Examples
+
+```bash
+git fetch
+# >>> remote: Enumerating objects: 278, done.
+# >>> remote: Counting objects: 100% (278/278), done.
+# >>> remote: Compressing objects: 100% (143/143), done.
+# >>> remote: Total 258 (delta 120), reused 231 (delta 93), pack-reused 0
+# >>> Receiving objects: 100% (258/258), 28.11 KiB | 487.00 KiB/s, done.
+# >>> Resolving deltas: 100% (120/120), completed with 7 local objects.
+# >>> From github.com:mstream/nix-config
+# >>>    bd31137..ac394e6  master             -> origin/master
+# >>>  * [new tag]         release-17.11.2020 -> release-17.11.2020
+```
+
+## status
+
+### Examples
+
+```bash
+git status
+# >>> On branch master
+# >>> nothing to commit, working tree clean
+```

@@ -3,7 +3,7 @@
 ## Format
 
 ```handlebars
-{{file_mode}} {{object_type}} {{object_hash}}	{{file_name}}
+{{file_mode}} {{object_type}} {{object_hash}} {{file_name}}
 ```
 
 | File Mode | Meaning         |
