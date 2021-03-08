@@ -10,6 +10,7 @@
   - [Remotes](architecture/references/remotes.md)
   - [HEAD](architecture/head.md)
 - [Workflow](workflow/README.md)
+  - [Updating Index](workflow/updating_index.md)
   - [Commiting](workflow/commiting.md)
   - [Branching](workflow/branching.md)
   - [Merging](workflow/merging.md)
