@@ -1,12 +1,16 @@
 #!/usr/bin/env bash
 
-dir=/tmp/book
+set -e
 
-git worktree add /tmp/git-reference gh-pages
+dir=/tmp/git-reference
+
+rm -rf "${dir}"
+mkdir -p "${dir}"
+git worktree add -f "${dir}" gh-pages
 mdbook build
 rm -rf "${dir}/*"
-cp -rp book/* "${dir}/"
+cp -rp book/html/* "${dir}/"
 cd "${dir}"
 git add -A
-git commit -m "$1"
+git commit -m "Update"
 git push origin gh-pages
