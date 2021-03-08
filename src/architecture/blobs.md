@@ -15,11 +15,11 @@ The most obvious one would be an empty blob with an
 empty [tree](trees.md).
 
 ```bash
-echo -e -n 'blob 12\0BLOB_CONTENT' | shasum -a 1
-# >>> 00a14d9c528be7b35cdcbe1915648d0c06bfc945 -
+echo -e -n 'blob 13\0BLOB_CONTENTS' | shasum -a 1
+# >>> b9bb0bbb048fcfb90a6f879bd512b8548a9e576b -
 ```
 
 ```bash
-echo -n 'BLOB_CONTENT' | git hash-object --stdin
-# >>> 00a14d9c528be7b35cdcbe1915648d0c06bfc945
+echo -n 'BLOB_CONTENTS' | git hash-object --stdin -t blob
+# >>> b9bb0bbb048fcfb90a6f879bd512b8548a9e576b
 ```
