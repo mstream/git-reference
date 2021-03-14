@@ -1,2 +1,4 @@
 *.generated.svg
+.husky
 book
+node_modules
