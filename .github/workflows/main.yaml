@@ -1,0 +1,15 @@
+jobs:
+  lint:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout/v2.3.4
+        with:
+          ref: ${{github.head_ref}}
+      - run: >
+          git fetch --depth=1 origin 
+          +refs/heads/${{github.base_ref}}:refs/remotes/origin/${{github.base_ref}}
+      - run: ./ci/check.sh commits
+on:
+  pull_request:
+    branches-ignore:
+      - master
