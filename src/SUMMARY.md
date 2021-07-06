@@ -11,6 +11,7 @@
     - [Tags](architecture/references/tags.md)
     - [Remotes](architecture/references/remotes.md)
 - [Workflow](workflow/README.md)
+  - [Initializing](workflow/initializing.md)
   - [Updating Index](workflow/updating_index.md)
   - [Commiting](workflow/commiting.md)
   - [Branching](workflow/branching.md)
