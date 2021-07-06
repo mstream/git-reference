@@ -9,8 +9,38 @@ title = "Git Reference"
 create-missing = true
 
 [output.html]
+additional-js = ["mermaid.min.js", "mermaid-init.js"]
+copy-fonts = true
+curly-quotes = true
+mathjax-support = true
+no-section-label = false
+theme = "ayu"
+
+[output.html.fold]
+enable = false
+level = 0
+
+[output.html.print]
+enable = false
+
+[output.html.search]
+enable = true
+limit-results = 30
+teaser-word-count = 30
+use-boolean-and = true
+boost-title = 2
+boost-hierarchy = 1
+boost-paragraph = 1
+expand = true
+heading-split-level = 3
+copy-js = true
+
 [output.linkcheck]
+
 [output.markdown]
 
 [preprocessor.graphviz]
 command = "mdbook-graphviz"
+
+[preprocessor.mermaid]
+command = "mdbook-mermaid"
