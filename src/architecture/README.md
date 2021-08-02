@@ -1,97 +1,57 @@
 # Architecture
 
-```dot process Graph 1
-digraph {
+```mermaid
+graph TD
+  subgraph objects
+    subgraph blobs
+      blob1(file1 content)
+      blob2(file2 content)
+      blob3(new file1 content)
+    end
+    subgraph trees
+      tree1(file1)
+      tree2(dir1<br>file1)
+      tree3(file2) 
+      tree4(dir1<br>file1)
+      tree1 ---->|file1| blob1
+      tree2 ---->|file1| blob1
+      tree2 -->|dir1| tree3
+      tree3 ---->|file2| blob2
+      tree4 ---->|file1| blob3
+      tree4 -->|dir1| tree3
+    end
+    subgraph commits
+      commit1(creates file1) 
+      commit2(creates dir1 with file1 inside) 
+      commit3(modifies the file1 content) 
+      commit2 ==> commit1
+      commit3 ==> commit2
+      commit1 ----> tree1
+      commit2 ----> tree2
+      commit3 ----> tree4
+    end
+  end
+  subgraph refs
+    subgraph heads
+      head1>master] ----> commit2 
+      head2>feature1] ----> commit3
+    end
+    subgraph tags
+      tag1>v0.1.0] ----> commit1 
+      tag2>v0.2.0] ----> commit2
+      tag3>v0.3.0] ----> commit3
+    end
+    subgraph remotes
+      remote1>origin/master] ----> commit1
+    end
+  end
+  HEAD ----> head1 
 
-  {
-    node [ style=filled color=black ]
-    HEAD [ fillcolor=lime shape=doubleoctagon penwidth=1.5 ]
-
-    {
-      node [ fillcolor=darksalmon shape=note height=1 width=2 ]
-      b1 [ label="file1 content" ]
-      b2 [ label="file2 content" ]
-      b3 [ label="new file1 content" ]
-    }
-
-    {
-      node [ fillcolor=yellow shape=oval penwidth=1.5 height=1 width=3 ]
-      c1 [ label="Creates 'file1' file" ]
-      c2 [ label="Creates 'dir1' directory\nwith 'file2' file inside" ]
-      c3 [ label="Modifies the file1 content" ]
-    }
-
-    {
-      node [ fillcolor=green shape=octagon]
-      feature1, master
-    }
-
-    {
-      node [ fillcolor=brown shape=octagon ]
-      origin_master [ label="origin/master" ]
-    }
-
-    {
-      node [ fillcolor=aqua shape=folder height=0.75 width=1 ]
-      t1 [ label="- file1" ]
-      t2 [ label="- dir1\n- file1" ]
-      t3 [ label="- file2"]
-      t4 [ label="- dir1\n- file1" ]
-    }
-
-    {
-      node [ fillcolor=grey shape=cds height=0.5 width=1.5 ]
-      v1 [ label="v0.1.0" ]
-      v2 [ label="v0.2.0" ]
-      v3 [ label="v0.3.0" ]
-    }
-
-  }
-
-  subgraph cluster_commits {
-    label="commits"
-    c3 -> c2 -> c1
-  }
-
-  subgraph cluster_refs {
-    label="refs"
-
-    subgraph cluster_heads {
-      label="heads"
-      feature1 -> c3
-      master -> c2
-    }
-
-    subgraph cluster_tags {
-      label="tags"
-      v1 -> c1
-      v2 -> c2
-      v3 -> c3
-    }
-
-    subgraph cluster_remotes {
-      label="remotes"
-      origin_master -> c1
-    }
-  }
-
-  subgraph cluster_trees {
-    label="trees"
-    c1 -> t1
-    c2 -> t2
-    t2 -> t3
-    c3 -> t4
-    t4 -> t3
-  }
-
-  subgraph cluster_blobs {
-    label="blobs"
-    t1 -> b1
-    t2 -> b1
-    t3 -> b2
-    t4 -> b3
-  }
-
-  HEAD -> feature1
-}
+  style blobs fill:#7FF
+  style commits fill:#FF7
+  style heads fill:#7A7
+  style remotes fill:#A77
+  style tags fill:#777
+  style trees fill:#77A
 ```
+
